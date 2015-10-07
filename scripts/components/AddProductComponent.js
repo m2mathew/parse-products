@@ -55,11 +55,12 @@ module.exports = React.createClass({
 	},
 	onAddProduct: function(e) {
 		e.preventDefault();
+		var priceAsInteger = parseInt(this.refs.price.getDOMNode().value);
 
 		var newProduct = new ProductModel({
 			name: this.refs.name.getDOMNode().value,
 			description: this.refs.description.getDOMNode().value,
-			price: this.refs.price.getDOMNode().value,
+			price: priceAsInteger,
 			category: this.refs.type.getDOMNode().value
 		});
 		newProduct.save();

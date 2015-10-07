@@ -32651,11 +32651,12 @@ module.exports = React.createClass({
 	},
 	onAddProduct: function onAddProduct(e) {
 		e.preventDefault();
+		var priceAsInteger = parseInt(this.refs.price.getDOMNode().value);
 
 		var newProduct = new ProductModel({
 			name: this.refs.name.getDOMNode().value,
 			description: this.refs.description.getDOMNode().value,
-			price: this.refs.price.getDOMNode().value,
+			price: priceAsInteger,
 			category: this.refs.type.getDOMNode().value
 		});
 		newProduct.save();
@@ -32825,6 +32826,12 @@ module.exports = React.createClass({
     },
     showAll: function showAll() {
         this.props.router.navigate('list', { trigger: true });
+    },
+    showNewest: function showNewest() {
+        this.props.router.navigate('newest', { trigger: true });
+    },
+    showCheapest: function showCheapest() {
+        this.props.router.navigate('cheapest', { trigger: true });
     }
 });
 
@@ -32847,7 +32854,7 @@ module.exports = React.createClass({
         var _this = this;
 
         var query = new Parse.Query(ProductModel);
-        query.equalTo('category', 'Books').find().then(function (product) {
+        query.ascending('price').limit(10).find().then(function (product) {
             _this.setState({ products: product });
         }, function (err) {
             console.log(err);
@@ -32901,7 +32908,7 @@ module.exports = React.createClass({
                     React.createElement(
                         'h1',
                         null,
-                        'Books'
+                        'Cheapest Products'
                     )
                 ),
                 React.createElement(
@@ -32970,12 +32977,12 @@ module.exports = React.createClass({
                     { className: 'row' },
                     React.createElement(
                         'button',
-                        { className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
+                        { className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-3' },
                         'Show 10 Cheapest'
                     ),
                     React.createElement(
                         'button',
-                        { onClick: this.showNewest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-3' },
+                        { onClick: this.showNewest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
                         'Show 10 Newest'
                     )
                 )
@@ -32991,8 +32998,9 @@ module.exports = React.createClass({
     showAll: function showAll() {
         this.props.router.navigate('list', { trigger: true });
     },
-    showNewest: function showNewest() {},
-    showCheapest: function showCheapest() {}
+    showNewest: function showNewest() {
+        this.props.router.navigate('newest', { trigger: true });
+    }
 });
 
 },{"../models/ProductModel":172,"react":159}],163:[function(require,module,exports){
@@ -33157,6 +33165,12 @@ module.exports = React.createClass({
     },
     showBooks: function showBooks() {
         this.props.router.navigate('category/books', { trigger: true });
+    },
+    showNewest: function showNewest() {
+        this.props.router.navigate('newest', { trigger: true });
+    },
+    showCheapest: function showCheapest() {
+        this.props.router.navigate('cheapest', { trigger: true });
     }
 });
 
@@ -33322,6 +33336,12 @@ module.exports = React.createClass({
     },
     showBooks: function showBooks() {
         this.props.router.navigate('category/books', { trigger: true });
+    },
+    showNewest: function showNewest() {
+        this.props.router.navigate('newest', { trigger: true });
+    },
+    showCheapest: function showCheapest() {
+        this.props.router.navigate('cheapest', { trigger: true });
     }
 });
 
@@ -33591,7 +33611,7 @@ module.exports = React.createClass({
         var _this = this;
 
         var query = new Parse.Query(ProductModel);
-        query.equalTo('category', 'Books').find().then(function (product) {
+        query.descending('createdAt').limit(10).find().then(function (product) {
             _this.setState({ products: product });
         }, function (err) {
             console.log(err);
@@ -33645,7 +33665,7 @@ module.exports = React.createClass({
                     React.createElement(
                         'h1',
                         null,
-                        'Books'
+                        'Newest Products'
                     )
                 ),
                 React.createElement(
@@ -33663,7 +33683,7 @@ module.exports = React.createClass({
                     ),
                     React.createElement(
                         'button',
-                        { className: 'sort-buttons waves-effect waves-light btn blue lighten-2' },
+                        { className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
                         'Books'
                     ),
                     React.createElement(
@@ -33735,8 +33755,9 @@ module.exports = React.createClass({
     showAll: function showAll() {
         this.props.router.navigate('list', { trigger: true });
     },
-    showNewest: function showNewest() {},
-    showCheapest: function showCheapest() {}
+    showCheapest: function showCheapest() {
+        this.props.router.navigate('cheapest', { trigger: true });
+    }
 });
 
 },{"../models/ProductModel":172,"react":159}],169:[function(require,module,exports){
@@ -33881,12 +33902,12 @@ module.exports = React.createClass({
                     { className: 'row' },
                     React.createElement(
                         'button',
-                        { onClick: this.newestTen, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
+                        { onClick: this.showCheapest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
                         'Show 10 Cheapest'
                     ),
                     React.createElement(
                         'button',
-                        { onClick: this.cheapestTen, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
+                        { onClick: this.showNewest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
                         'Show 10 Newest'
                     )
                 )
@@ -33903,10 +33924,10 @@ module.exports = React.createClass({
         this.props.router.navigate('category/books', { trigger: true });
     },
     showNewest: function showNewest() {
-        this.props.router.navigate('category/books', { trigger: true });
+        this.props.router.navigate('newest', { trigger: true });
     },
     showCheapest: function showCheapest() {
-        this.props.router.navigate('category/books', { trigger: true });
+        this.props.router.navigate('cheapest', { trigger: true });
     }
 });
 

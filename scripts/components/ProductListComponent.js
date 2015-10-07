@@ -60,8 +60,8 @@ module.exports = React.createClass({
                         </tbody>
                     </table>
                     <div className="row">
-                        <button onClick={this.newestTen} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
-                        <button onClick={this.cheapestTen} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
+                        <button onClick={this.showCheapest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
+                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
                     </div>
                 </div>
             </div>
@@ -77,9 +77,9 @@ module.exports = React.createClass({
         this.props.router.navigate('category/books', {trigger: true});
     },
     showNewest: function() {
-        this.props.router.navigate('category/books', {trigger: true});
+        this.props.router.navigate('newest', {trigger: true});
     },
     showCheapest: function() {
-        this.props.router.navigate('category/books', {trigger: true});
+        this.props.router.navigate('cheapest', {trigger: true});
     }
 });

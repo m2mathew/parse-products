@@ -11,7 +11,8 @@ module.exports = React.createClass({
     componentWillMount: function() {
         var query = new Parse.Query(ProductModel);
         query
-        .equalTo('category', 'Books')
+        .ascending('price')
+        .limit(10)
         .find().then(
             (product) => {
                 this.setState({ products: product });
@@ -39,7 +40,7 @@ module.exports = React.createClass({
             <div className="container">
                 <div className="row">
                     <div className="row">
-                        <h1>Books</h1>
+                        <h1>Cheapest Products</h1>
                     </div>
                     <div className="row">
                         <button onClick={this.showClothing} className="sort-buttons waves-effect waves-light btn blue darken-2">Clothing</button>
@@ -61,8 +62,8 @@ module.exports = React.createClass({
                         </tbody>
                     </table>
                     <div className="row">
-                        <button className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
-                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-3">Show 10 Newest</button>
+                        <button className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-3">Show 10 Cheapest</button>
+                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
                     </div>
                 </div>
             </div>
@@ -78,9 +79,6 @@ module.exports = React.createClass({
         this.props.router.navigate('list', {trigger: true});
     },
     showNewest: function() {
-
-    },
-    showCheapest: function() {
-
+        this.props.router.navigate('newest', {trigger: true});
     }
 });

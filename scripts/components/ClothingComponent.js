@@ -76,5 +76,11 @@ module.exports = React.createClass({
     },
     showBooks: function() {
         this.props.router.navigate('category/books', {trigger: true});
+    },
+    showNewest: function() {
+        this.props.router.navigate('newest', {trigger: true});
+    },
+    showCheapest: function() {
+        this.props.router.navigate('cheapest', {trigger: true});
     }
 });

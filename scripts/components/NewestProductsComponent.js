@@ -11,7 +11,8 @@ module.exports = React.createClass({
     componentWillMount: function() {
         var query = new Parse.Query(ProductModel);
         query
-        .equalTo('category', 'Books')
+        .descending('createdAt')
+        .limit(10)
         .find().then(
             (product) => {
                 this.setState({ products: product });
@@ -39,12 +40,12 @@ module.exports = React.createClass({
             <div className="container">
                 <div className="row">
                     <div className="row">
-                        <h1>Books</h1>
+                        <h1>Newest Products</h1>
                     </div>
                     <div className="row">
                         <button onClick={this.showClothing} className="sort-buttons waves-effect waves-light btn blue darken-2">Clothing</button>
                         <button onClick={this.showElectronics} className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
-                        <button className="sort-buttons waves-effect waves-light btn blue lighten-2">Books</button>
+                        <button className="sort-buttons waves-effect waves-light btn blue darken-2">Books</button>
                         <button onClick={this.showAll} className="sort-buttons waves-effect waves-light btn blue darken-2">Show All</button>
                     </div>
                     <table className="striped">
@@ -77,10 +78,7 @@ module.exports = React.createClass({
     showAll: function() {
         this.props.router.navigate('list', {trigger: true});
     },
-    showNewest: function() {
-
-    },
     showCheapest: function() {
-
+        this.props.router.navigate('cheapest', {trigger: true});
     }
 });
