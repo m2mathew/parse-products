@@ -11,7 +11,6 @@ module.exports = React.createClass({
     componentWillMount: function() {
         var query = new Parse.Query(ProductModel);
         query
-        .equalTo('category', 'Clothing')
         .find().then(
             (product) => {
                 this.setState({ products: product });
@@ -21,8 +20,8 @@ module.exports = React.createClass({
             }
         );
     },
-	render: function() {
-		var content = (<div> loading... </div>);
+    render: function() {
+        var content = (<div> loading... </div>);
         if(this.state.products) {
             content = this.state.products.map(function(product) {
                 return (
@@ -38,7 +37,14 @@ module.exports = React.createClass({
         return (
             <div className="container">
                 <div className="row">
-                    <h1>Clothing</h1>
+                    <h1>Products</h1>
+                </div>
+                <div className="row">
+                    <button className="sort-buttons waves-effect waves-light btn blue darken-3">Books</button>
+                    <button className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
+                    <button className="sort-buttons waves-effect waves-light btn blue darken-1">Clothing</button>
+                </div>
+                <div className="row">
                     <table className="striped">
                         <thead>
                             <tr>
@@ -55,5 +61,5 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
-	}
+    }
 });
