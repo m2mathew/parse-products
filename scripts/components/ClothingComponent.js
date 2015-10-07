@@ -38,7 +38,15 @@ module.exports = React.createClass({
         return (
             <div className="container">
                 <div className="row">
-                    <h1>Clothing</h1>
+                    <div className="row">
+                        <h1>Clothing</h1>
+                    </div>
+                    <div className="row">
+                        <button className="sort-buttons waves-effect waves-light btn blue <light></light>en-2">Clothing</button>
+                        <button onClick={this.showElectronics} className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
+                        <button onClick={this.showBooks} className="sort-buttons waves-effect waves-light btn blue darken-2">Books</button>
+                        <button onClick={this.showAll} className="sort-buttons waves-effect waves-light btn blue darken-2">Show All</button>
+                    </div>
                     <table className="striped">
                         <thead>
                             <tr>
@@ -55,5 +63,14 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
-	}
+	},
+    showAll: function() {
+        this.props.router.navigate('list', {trigger: true});
+    },
+    showElectronics: function() {
+        this.props.router.navigate('category/electronics', {trigger: true});
+    },
+    showBooks: function() {
+        this.props.router.navigate('category/books', {trigger: true});
+    }
 });

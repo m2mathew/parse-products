@@ -40,9 +40,10 @@ module.exports = React.createClass({
                     <h1>Products</h1>
                 </div>
                 <div className="row">
-                    <button className="sort-buttons waves-effect waves-light btn blue darken-3">Books</button>
-                    <button className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
-                    <button className="sort-buttons waves-effect waves-light btn blue darken-1">Clothing</button>
+                    <button onClick={this.showClothing} className="sort-buttons waves-effect waves-light btn blue darken-2">Clothing</button>
+                    <button onClick={this.showElectronics} className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
+                    <button onClick={this.showBooks} className="sort-buttons waves-effect waves-light btn blue darken-2">Books</button>
+                    <button className="sort-buttons waves-effect waves-light btn blue lighten-2">Show All</button>
                 </div>
                 <div className="row">
                     <table className="striped">
@@ -61,5 +62,19 @@ module.exports = React.createClass({
                 </div>
             </div>
         );
+    },
+    showClothing: function() {
+        this.props.router.navigate('category/clothing', {trigger: true});
+    },
+    showElectronics: function() {
+        this.props.router.navigate('category/electronics', {trigger: true});
+    },
+    showBooks: function() {
+        this.props.router.navigate('category/books', {trigger: true});
     }
 });
+
+
+// <li key="books" className={currentPage === 'category/books' ? 'active' : ''}><a href="#category/books">Books</a></li>,
+            // <li key="electronics" className={currentPage === 'category/electronics' ? 'active' : ''}><a href="#category/electronics">Electronics</a></li>,
+            // <li key="clothing" className={currentPage === 'category/clothing' ? 'active' : ''}><a href="#category/clothing">Clothing</a></li>

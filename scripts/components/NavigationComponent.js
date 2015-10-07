@@ -13,10 +13,7 @@ module.exports = React.createClass({
 
 		var links = [
 			<li key="home" className={currentPage === '' ? 'active' : ''}><a href="#">Home</a></li>,
-			<li key="list" className={currentPage === 'list' ? 'active' : ''}><a href="#list">List</a></li>,
-			<li key="books" className={currentPage === 'category/books' ? 'active' : ''}><a href="#category/books">Books</a></li>,
-			<li key="electronics" className={currentPage === 'category/electronics' ? 'active' : ''}><a href="#category/electronics">Electronics</a></li>,
-			<li key="clothing" className={currentPage === 'category/clothing' ? 'active' : ''}><a href="#category/clothing">Clothing</a></li>
+			<li key="list" className={currentPage === 'list' ? 'active' : ''}><a href="#list">Product List</a></li>
 		];
 
 		if(currentUser) {

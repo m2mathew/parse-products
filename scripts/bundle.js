@@ -32731,9 +32731,37 @@ module.exports = React.createClass({
                 'div',
                 { className: 'row' },
                 React.createElement(
-                    'h1',
-                    null,
-                    'Books'
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'h1',
+                        null,
+                        'Books'
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'button',
+                        { onClick: this.showClothing, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Clothing'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showElectronics, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Electronics'
+                    ),
+                    React.createElement(
+                        'button',
+                        { className: 'sort-buttons waves-effect waves-light btn blue lighten-2' },
+                        'Books'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showAll, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Show All'
+                    )
                 ),
                 React.createElement(
                     'table',
@@ -32774,6 +32802,15 @@ module.exports = React.createClass({
                 )
             )
         );
+    },
+    showClothing: function showClothing() {
+        this.props.router.navigate('category/clothing', { trigger: true });
+    },
+    showElectronics: function showElectronics() {
+        this.props.router.navigate('category/electronics', { trigger: true });
+    },
+    showAll: function showAll() {
+        this.props.router.navigate('list', { trigger: true });
     }
 });
 
@@ -32845,9 +32882,37 @@ module.exports = React.createClass({
                 'div',
                 { className: 'row' },
                 React.createElement(
-                    'h1',
-                    null,
-                    'Clothing'
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'h1',
+                        null,
+                        'Clothing'
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'button',
+                        { className: 'sort-buttons waves-effect waves-light btn blue <light></light>en-2' },
+                        'Clothing'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showElectronics, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Electronics'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showBooks, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Books'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showAll, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Show All'
+                    )
                 ),
                 React.createElement(
                     'table',
@@ -32888,6 +32953,15 @@ module.exports = React.createClass({
                 )
             )
         );
+    },
+    showAll: function showAll() {
+        this.props.router.navigate('list', { trigger: true });
+    },
+    showElectronics: function showElectronics() {
+        this.props.router.navigate('category/electronics', { trigger: true });
+    },
+    showBooks: function showBooks() {
+        this.props.router.navigate('category/books', { trigger: true });
     }
 });
 
@@ -32959,9 +33033,37 @@ module.exports = React.createClass({
                 'div',
                 { className: 'row' },
                 React.createElement(
-                    'h1',
-                    null,
-                    'Electronics'
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'h1',
+                        null,
+                        'Electronics'
+                    )
+                ),
+                React.createElement(
+                    'div',
+                    { className: 'row' },
+                    React.createElement(
+                        'button',
+                        { onClick: this.showClothing, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Clothing'
+                    ),
+                    React.createElement(
+                        'button',
+                        { className: 'sort-buttons waves-effect waves-light btn blue lighten-2' },
+                        'Electronics'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showBooks, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Books'
+                    ),
+                    React.createElement(
+                        'button',
+                        { onClick: this.showAll, className: ' sort-buttons waves-effect waves-light btn blue darken-2' },
+                        'Show All'
+                    )
                 ),
                 React.createElement(
                     'table',
@@ -33002,6 +33104,15 @@ module.exports = React.createClass({
                 )
             )
         );
+    },
+    showClothing: function showClothing() {
+        this.props.router.navigate('category/clothing', { trigger: true });
+    },
+    showAll: function showAll() {
+        this.props.router.navigate('list', { trigger: true });
+    },
+    showBooks: function showBooks() {
+        this.props.router.navigate('category/books', { trigger: true });
     }
 });
 
@@ -33177,31 +33288,7 @@ module.exports = React.createClass({
 			React.createElement(
 				'a',
 				{ href: '#list' },
-				'List'
-			)
-		), React.createElement(
-			'li',
-			{ key: 'books', className: currentPage === 'category/books' ? 'active' : '' },
-			React.createElement(
-				'a',
-				{ href: '#category/books' },
-				'Books'
-			)
-		), React.createElement(
-			'li',
-			{ key: 'electronics', className: currentPage === 'category/electronics' ? 'active' : '' },
-			React.createElement(
-				'a',
-				{ href: '#category/electronics' },
-				'Electronics'
-			)
-		), React.createElement(
-			'li',
-			{ key: 'clothing', className: currentPage === 'category/clothing' ? 'active' : '' },
-			React.createElement(
-				'a',
-				{ href: '#category/clothing' },
-				'Clothing'
+				'Product List'
 			)
 		)];
 
@@ -33354,18 +33441,23 @@ module.exports = React.createClass({
                 { className: 'row' },
                 React.createElement(
                     'button',
-                    { className: 'sort-buttons waves-effect waves-light btn blue darken-3' },
-                    'Books'
+                    { onClick: this.showClothing, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                    'Clothing'
                 ),
                 React.createElement(
                     'button',
-                    { className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                    { onClick: this.showElectronics, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
                     'Electronics'
                 ),
                 React.createElement(
                     'button',
-                    { className: 'sort-buttons waves-effect waves-light btn blue darken-1' },
-                    'Clothing'
+                    { onClick: this.showBooks, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+                    'Books'
+                ),
+                React.createElement(
+                    'button',
+                    { className: 'sort-buttons waves-effect waves-light btn blue lighten-2' },
+                    'Show All'
                 )
             ),
             React.createElement(
@@ -33410,8 +33502,21 @@ module.exports = React.createClass({
                 )
             )
         );
+    },
+    showClothing: function showClothing() {
+        this.props.router.navigate('category/clothing', { trigger: true });
+    },
+    showElectronics: function showElectronics() {
+        this.props.router.navigate('category/electronics', { trigger: true });
+    },
+    showBooks: function showBooks() {
+        this.props.router.navigate('category/books', { trigger: true });
     }
 });
+
+// <li key="books" className={currentPage === 'category/books' ? 'active' : ''}><a href="#category/books">Books</a></li>,
+// <li key="electronics" className={currentPage === 'category/electronics' ? 'active' : ''}><a href="#category/electronics">Electronics</a></li>,
+// <li key="clothing" className={currentPage === 'category/clothing' ? 'active' : ''}><a href="#category/clothing">Clothing</a></li>
 
 },{"../models/ProductModel":170,"react":159}],168:[function(require,module,exports){
 "use strict";
@@ -33552,13 +33657,13 @@ var Router = Backbone.Router.extend({
 		React.render(React.createElement(ProductListComponent, { router: r }), app);
 	},
 	books: function books() {
-		React.render(React.createElement(BooksComponent, null), app);
+		React.render(React.createElement(BooksComponent, { router: r }), app);
 	},
 	electronics: function electronics() {
-		React.render(React.createElement(ElectronicsComponent, null), app);
+		React.render(React.createElement(ElectronicsComponent, { router: r }), app);
 	},
 	clothing: function clothing() {
-		React.render(React.createElement(ClothingComponent, null), app);
+		React.render(React.createElement(ClothingComponent, { router: r }), app);
 	},
 	login: function login() {
 		React.render(React.createElement(LoginComponent, { router: r }), app);

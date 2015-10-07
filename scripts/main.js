@@ -38,13 +38,13 @@ var Router = Backbone.Router.extend({
 		React.render(<ProductListComponent router={r} />, app);
 	},
 	books: function() {
-		React.render(<BooksComponent />, app);
+		React.render(<BooksComponent router={r} />, app);
 	},
 	electronics: function() {
-		React.render(<ElectronicsComponent />, app);
+		React.render(<ElectronicsComponent router={r} />, app);
 	},
 	clothing: function() {
-		React.render(<ClothingComponent />, app);
+		React.render(<ClothingComponent router={r} />, app);
 	},
 	login: function() {
 		React.render(<LoginComponent router={r} />, app);
