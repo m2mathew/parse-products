@@ -60,6 +60,10 @@ module.exports = React.createClass({
                             {content}
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button onClick={this.showCheapest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
+                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
+                    </div>
                 </div>
             </div>
         );

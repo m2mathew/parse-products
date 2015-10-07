@@ -11,7 +11,7 @@ module.exports = React.createClass({
     componentWillMount: function() {
         var query = new Parse.Query(ProductModel);
         query
-        .equalTo('category', 'Electronics')
+        .equalTo('category', 'Books')
         .find().then(
             (product) => {
                 this.setState({ products: product });
@@ -21,8 +21,8 @@ module.exports = React.createClass({
             }
         );
     },
-	render: function() {
-		var content = (<div> loading... </div>);
+    render: function() {
+        var content = (<div> loading... </div>);
         if(this.state.products) {
             content = this.state.products.map(function(product) {
                 return (
@@ -39,13 +39,13 @@ module.exports = React.createClass({
             <div className="container">
                 <div className="row">
                     <div className="row">
-                        <h1>Electronics</h1>
+                        <h1>Books</h1>
                     </div>
                     <div className="row">
                         <button onClick={this.showClothing} className="sort-buttons waves-effect waves-light btn blue darken-2">Clothing</button>
-                        <button className="sort-buttons waves-effect waves-light btn blue lighten-2">Electronics</button>
-                        <button onClick={this.showBooks} className="sort-buttons waves-effect waves-light btn blue darken-2">Books</button>
-                        <button onClick={this.showAll} className=" sort-buttons waves-effect waves-light btn blue darken-2">Show All</button>
+                        <button onClick={this.showElectronics} className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
+                        <button className="sort-buttons waves-effect waves-light btn blue lighten-2">Books</button>
+                        <button onClick={this.showAll} className="sort-buttons waves-effect waves-light btn blue darken-2">Show All</button>
                     </div>
                     <table className="striped">
                         <thead>
@@ -61,20 +61,26 @@ module.exports = React.createClass({
                         </tbody>
                     </table>
                     <div className="row">
-                        <button onClick={this.showCheapest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
-                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
+                        <button className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
+                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-3">Show 10 Newest</button>
                     </div>
                 </div>
             </div>
         );
-	},
+    },
     showClothing: function() {
         this.props.router.navigate('category/clothing', {trigger: true});
+    },
+    showElectronics: function() {
+        this.props.router.navigate('category/electronics', {trigger: true});
     },
     showAll: function() {
         this.props.router.navigate('list', {trigger: true});
     },
-    showBooks: function() {
-        this.props.router.navigate('category/books', {trigger: true});
+    showNewest: function() {
+
+    },
+    showCheapest: function() {
+
     }
 });

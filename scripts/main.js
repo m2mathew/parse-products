@@ -14,6 +14,8 @@ var ElectronicsComponent = require('./components/ElectronicsComponent');
 var ClothingComponent = require('./components/ClothingComponent');
 var RegisterComponent = require('./components/RegisterComponent');
 var ProductListComponent = require('./components/ProductListComponent');
+var NewestProductsComponent = require('./components/NewestProductsComponent');
+var CheapestProductsComponent = require('./components/CheapestProductsComponent');
 
 var app = document.getElementById('app');
 
@@ -26,7 +28,9 @@ var Router = Backbone.Router.extend({
 		'category/electronics': 'electronics',
 		'category/clothing': 'clothing',
 		'login': 'login',
-		'register': 'register'
+		'register': 'register',
+		'newest': 'newest',
+		'cheapest': 'cheapest'
 	},
 	home: function() {
 		React.render(<HomeComponent />, app);
@@ -51,6 +55,12 @@ var Router = Backbone.Router.extend({
 	},
 	register: function() {
 		React.render(<RegisterComponent router={r} />, app);
+	},
+	newest: function() {
+		React.render(<NewestProductsComponent router={r} />, app);
+	},
+	cheapest: function() {
+		React.render(<CheapestProductsComponent router={r} />, app);
 	}
 });
 

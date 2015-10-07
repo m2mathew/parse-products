@@ -59,6 +59,10 @@ module.exports = React.createClass({
                             {content}
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button onClick={this.newestTen} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
+                        <button onClick={this.cheapestTen} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
+                    </div>
                 </div>
             </div>
         );
@@ -71,10 +75,11 @@ module.exports = React.createClass({
     },
     showBooks: function() {
         this.props.router.navigate('category/books', {trigger: true});
+    },
+    showNewest: function() {
+        this.props.router.navigate('category/books', {trigger: true});
+    },
+    showCheapest: function() {
+        this.props.router.navigate('category/books', {trigger: true});
     }
 });
-
-
-// <li key="books" className={currentPage === 'category/books' ? 'active' : ''}><a href="#category/books">Books</a></li>,
-            // <li key="electronics" className={currentPage === 'category/electronics' ? 'active' : ''}><a href="#category/electronics">Electronics</a></li>,
-            // <li key="clothing" className={currentPage === 'category/clothing' ? 'active' : ''}><a href="#category/clothing">Clothing</a></li>

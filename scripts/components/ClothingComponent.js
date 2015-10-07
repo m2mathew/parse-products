@@ -42,7 +42,7 @@ module.exports = React.createClass({
                         <h1>Clothing</h1>
                     </div>
                     <div className="row">
-                        <button className="sort-buttons waves-effect waves-light btn blue <light></light>en-2">Clothing</button>
+                        <button className="sort-buttons waves-effect waves-light btn blue lighten-2">Clothing</button>
                         <button onClick={this.showElectronics} className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
                         <button onClick={this.showBooks} className="sort-buttons waves-effect waves-light btn blue darken-2">Books</button>
                         <button onClick={this.showAll} className="sort-buttons waves-effect waves-light btn blue darken-2">Show All</button>
@@ -60,6 +60,10 @@ module.exports = React.createClass({
                             {content}
                         </tbody>
                     </table>
+                    <div className="row">
+                        <button onClick={this.showCheapest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Cheapest</button>
+                        <button onClick={this.showNewest} className="sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1">Show 10 Newest</button>
+                    </div>
                 </div>
             </div>
         );
