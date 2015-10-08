@@ -32664,7 +32664,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"../models/ProductModel":173,"react":159}],161:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],161:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32675,8 +32675,7 @@ module.exports = React.createClass({
 
     getInitialState: function getInitialState() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function componentWillMount() {
@@ -32835,7 +32834,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/ProductModel":173,"react":159}],162:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],162:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -32846,8 +32845,7 @@ module.exports = React.createClass({
 
     getInitialState: function getInitialState() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function componentWillMount() {
@@ -33003,7 +33001,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/ProductModel":173,"react":159}],163:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],163:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33014,8 +33012,7 @@ module.exports = React.createClass({
 
     getInitialState: function getInitialState() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function componentWillMount() {
@@ -33174,7 +33171,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/ProductModel":173,"react":159}],164:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33185,8 +33182,7 @@ module.exports = React.createClass({
 
     getInitialState: function getInitialState() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function componentWillMount() {
@@ -33345,30 +33341,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/ProductModel":173,"react":159}],165:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-var ProductModel = require('../models/ProductModel');
-
-module.exports = React.createClass({
-    displayName: 'exports',
-
-    render: function render() {
-        return React.createElement(
-            'div',
-            { className: 'input-field col s6 right filter-icon' },
-            React.createElement(
-                'i',
-                { className: 'material-icons prefix' },
-                ''
-            ),
-            React.createElement('input', { placeholder: 'Search', id: 'filterBox', type: 'text', ref: 'inputText' })
-        );
-    }
-});
-
-},{"../models/ProductModel":173,"react":159}],166:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],165:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33412,7 +33385,7 @@ module.exports = React.createClass({
   }
 });
 
-},{"react":159}],167:[function(require,module,exports){
+},{"react":159}],166:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -33506,7 +33479,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],168:[function(require,module,exports){
+},{"react":159}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33615,7 +33588,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"backbone":1,"react":159}],169:[function(require,module,exports){
+},{"backbone":1,"react":159}],168:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33626,8 +33599,7 @@ module.exports = React.createClass({
 
     getInitialState: function getInitialState() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function componentWillMount() {
@@ -33783,20 +33755,18 @@ module.exports = React.createClass({
     }
 });
 
-},{"../models/ProductModel":173,"react":159}],170:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var ProductModel = require('../models/ProductModel');
-var FilterBoxComponent = require('./FilterBoxComponent');
 
 module.exports = React.createClass({
     displayName: 'exports',
 
     getInitialState: function getInitialState() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function componentWillMount() {
@@ -33809,6 +33779,7 @@ module.exports = React.createClass({
             console.log(err);
         });
     },
+    componentDidMount: function componentDidMount() {},
     render: function render() {
         var content = React.createElement(
             'div',
@@ -33883,8 +33854,13 @@ module.exports = React.createClass({
             ),
             React.createElement(
                 'form',
-                { className: 'row', onSubmit: this.filterBox },
-                React.createElement(FilterBoxComponent, null)
+                { className: 'row input-field right', onSubmit: this.filterBox },
+                React.createElement(
+                    'i',
+                    { className: 'material-icons prefix' },
+                    ''
+                ),
+                React.createElement('input', { placeholder: 'Search', id: 'filterBox', type: 'text', ref: 'searchText' })
             ),
             React.createElement(
                 'div',
@@ -33917,11 +33893,6 @@ module.exports = React.createClass({
                                 'th',
                                 { 'data-field': 'category' },
                                 'Category'
-                            ),
-                            React.createElement(
-                                'th',
-                                { 'data-field': 'dateCreated' },
-                                'Added'
                             )
                         )
                     ),
@@ -33964,13 +33935,20 @@ module.exports = React.createClass({
         this.props.router.navigate('cheapest', { trigger: true });
     },
     filterBox: function filterBox(e) {
+        var _this2 = this;
+
         e.preventDefault();
-        var searchInput = this.refs.inputText.getDOMNode().value;
-        this.query.equalTo('name', searchInput);
+        var query = new Parse.Query(ProductModel);
+        var searchInput = this.refs.searchText.getDOMNode().value;
+        query.contains('name', searchInput).find().then(function (searchResult) {
+            _this2.setState({ products: searchResult });
+        }, function (err) {
+            console.log(err);
+        });
     }
 });
 
-},{"../models/ProductModel":173,"./FilterBoxComponent":165,"react":159}],171:[function(require,module,exports){
+},{"../models/ProductModel":172,"react":159}],170:[function(require,module,exports){
 "use strict";
 
 var React = require('react');
@@ -34068,7 +34046,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":159}],172:[function(require,module,exports){
+},{"react":159}],171:[function(require,module,exports){
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
@@ -34140,14 +34118,14 @@ Backbone.history.start();
 
 React.render(React.createElement(NavigationComponent, { router: r }), document.getElementById('nav'));
 
-},{"./components/AddProductComponent":160,"./components/BooksComponent":161,"./components/CheapestProductsComponent":162,"./components/ClothingComponent":163,"./components/ElectronicsComponent":164,"./components/HomeComponent":166,"./components/LoginComponent":167,"./components/NavigationComponent":168,"./components/NewestProductsComponent":169,"./components/ProductListComponent":170,"./components/RegisterComponent":171,"backbone":1,"jquery":4,"react":159}],173:[function(require,module,exports){
+},{"./components/AddProductComponent":160,"./components/BooksComponent":161,"./components/CheapestProductsComponent":162,"./components/ClothingComponent":163,"./components/ElectronicsComponent":164,"./components/HomeComponent":165,"./components/LoginComponent":166,"./components/NavigationComponent":167,"./components/NewestProductsComponent":168,"./components/ProductListComponent":169,"./components/RegisterComponent":170,"backbone":1,"jquery":4,"react":159}],172:[function(require,module,exports){
 'use strict';
 
 module.exports = Parse.Object.extend({
     className: 'Product'
 });
 
-},{}]},{},[172])
+},{}]},{},[171])
 
 
 //# sourceMappingURL=bundle.js.map

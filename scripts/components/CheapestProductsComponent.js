@@ -4,8 +4,7 @@ var ProductModel = require('../models/ProductModel');
 module.exports = React.createClass({
     getInitialState: function() {
         return {
-            products: [],
-            currentType: null
+            products: []
         };
     },
     componentWillMount: function() {
