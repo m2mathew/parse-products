@@ -45,7 +45,7 @@ module.exports = React.createClass({
                     <div className="row">
                         <button onClick={this.showClothing} className="sort-buttons waves-effect waves-light btn blue darken-2">Clothing</button>
                         <button onClick={this.showElectronics} className="sort-buttons waves-effect waves-light btn blue darken-2">Electronics</button>
-                        <button className="sort-buttons waves-effect waves-light btn blue lighten-2">Books</button>
+                        <button className="sort-buttons waves-effect waves-light btn blue darken-2">Books</button>
                         <button onClick={this.showAll} className="sort-buttons waves-effect waves-light btn blue darken-2">Show All</button>
                     </div>
                     <table className="striped">

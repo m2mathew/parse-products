@@ -32,3 +32,18 @@ th {
     margin-top: 0.5em;
     margin-left: 0.25em;
 }
+
+.filter-icon {
+    padding-top: 2em;
+}
+
+.input-field {
+
+    input[type=text]:focus {
+         border-bottom: 1px solid #1976D2;
+    }
+
+    .prefix.active {
+         color: #1976D2;
+    }
+}
