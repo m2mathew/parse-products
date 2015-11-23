@@ -1,5 +1,9 @@
 # React Navigation
 
+Assignment from The Iron Yard-Austin
+
+Week 7 - day 27
+
 ## Description
 Use parse to store and query product information.
 
@@ -21,7 +25,6 @@ After completing this assignment, you be able to effectively use
 * Parse.Object.extend
 * Parse.Query
 * .save(...)
-
 
 
 ## Details

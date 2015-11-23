@@ -33762,190 +33762,190 @@ var React = require('react');
 var ProductModel = require('../models/ProductModel');
 
 module.exports = React.createClass({
-    displayName: 'exports',
+	displayName: 'exports',
 
-    getInitialState: function getInitialState() {
-        return {
-            products: []
-        };
-    },
-    componentWillMount: function componentWillMount() {
-        var _this = this;
+	getInitialState: function getInitialState() {
+		return {
+			products: []
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		var _this = this;
 
-        var query = new Parse.Query(ProductModel);
-        query.find().then(function (product) {
-            _this.setState({ products: product });
-        }, function (err) {
-            console.log(err);
-        });
-    },
-    componentDidMount: function componentDidMount() {},
-    render: function render() {
-        var content = React.createElement(
-            'div',
-            null,
-            ' loading... '
-        );
-        if (this.state.products) {
-            content = this.state.products.map(function (product) {
-                return React.createElement(
-                    'tr',
-                    { key: product.id },
-                    React.createElement(
-                        'td',
-                        null,
-                        product.get('name')
-                    ),
-                    React.createElement(
-                        'td',
-                        null,
-                        product.get('description')
-                    ),
-                    React.createElement(
-                        'td',
-                        null,
-                        '$',
-                        product.get('price'),
-                        '.00'
-                    ),
-                    React.createElement(
-                        'td',
-                        null,
-                        product.get('category')
-                    )
-                );
-            });
-        }
-        return React.createElement(
-            'div',
-            { className: 'container' },
-            React.createElement(
-                'div',
-                { className: 'row' },
-                React.createElement(
-                    'h1',
-                    null,
-                    'Products'
-                )
-            ),
-            React.createElement(
-                'div',
-                { className: 'row' },
-                React.createElement(
-                    'button',
-                    { onClick: this.showClothing, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
-                    'Clothing'
-                ),
-                React.createElement(
-                    'button',
-                    { onClick: this.showElectronics, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
-                    'Electronics'
-                ),
-                React.createElement(
-                    'button',
-                    { onClick: this.showBooks, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
-                    'Books'
-                ),
-                React.createElement(
-                    'button',
-                    { className: 'sort-buttons waves-effect waves-light btn blue lighten-2' },
-                    'Show All'
-                )
-            ),
-            React.createElement(
-                'form',
-                { className: 'row input-field right', onSubmit: this.filterBox },
-                React.createElement(
-                    'i',
-                    { className: 'material-icons prefix' },
-                    ''
-                ),
-                React.createElement('input', { placeholder: 'Search', id: 'filterBox', type: 'text', ref: 'searchText' })
-            ),
-            React.createElement(
-                'div',
-                { className: 'row' },
-                React.createElement(
-                    'table',
-                    { className: 'striped' },
-                    React.createElement(
-                        'thead',
-                        null,
-                        React.createElement(
-                            'tr',
-                            null,
-                            React.createElement(
-                                'th',
-                                { 'data-field': 'id' },
-                                'Name'
-                            ),
-                            React.createElement(
-                                'th',
-                                { 'data-field': 'name' },
-                                'Description'
-                            ),
-                            React.createElement(
-                                'th',
-                                { 'data-field': 'price' },
-                                'Price'
-                            ),
-                            React.createElement(
-                                'th',
-                                { 'data-field': 'category' },
-                                'Category'
-                            )
-                        )
-                    ),
-                    React.createElement(
-                        'tbody',
-                        null,
-                        content
-                    )
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'row' },
-                    React.createElement(
-                        'button',
-                        { onClick: this.showCheapest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
-                        'Show 10 Cheapest'
-                    ),
-                    React.createElement(
-                        'button',
-                        { onClick: this.showNewest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
-                        'Show 10 Newest'
-                    )
-                )
-            )
-        );
-    },
-    showClothing: function showClothing() {
-        this.props.router.navigate('category/clothing', { trigger: true });
-    },
-    showElectronics: function showElectronics() {
-        this.props.router.navigate('category/electronics', { trigger: true });
-    },
-    showBooks: function showBooks() {
-        this.props.router.navigate('category/books', { trigger: true });
-    },
-    showNewest: function showNewest() {
-        this.props.router.navigate('newest', { trigger: true });
-    },
-    showCheapest: function showCheapest() {
-        this.props.router.navigate('cheapest', { trigger: true });
-    },
-    filterBox: function filterBox(e) {
-        var _this2 = this;
+		var query = new Parse.Query(ProductModel);
+		query.find().then(function (product) {
+			_this.setState({ products: product });
+		}, function (err) {
+			console.log(err);
+		});
+	},
+	componentDidMount: function componentDidMount() {},
+	render: function render() {
+		var content = React.createElement(
+			'div',
+			null,
+			' loading... '
+		);
+		if (this.state.products) {
+			content = this.state.products.map(function (product) {
+				return React.createElement(
+					'tr',
+					{ key: product.id },
+					React.createElement(
+						'td',
+						null,
+						product.get('name')
+					),
+					React.createElement(
+						'td',
+						null,
+						product.get('description')
+					),
+					React.createElement(
+						'td',
+						null,
+						'$',
+						product.get('price'),
+						'.00'
+					),
+					React.createElement(
+						'td',
+						null,
+						product.get('category')
+					)
+				);
+			});
+		}
+		return React.createElement(
+			'div',
+			{ className: 'container' },
+			React.createElement(
+				'div',
+				{ className: 'row' },
+				React.createElement(
+					'h1',
+					null,
+					'Products'
+				)
+			),
+			React.createElement(
+				'div',
+				{ className: 'row' },
+				React.createElement(
+					'button',
+					{ onClick: this.showClothing, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+					'Clothing'
+				),
+				React.createElement(
+					'button',
+					{ onClick: this.showElectronics, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+					'Electronics'
+				),
+				React.createElement(
+					'button',
+					{ onClick: this.showBooks, className: 'sort-buttons waves-effect waves-light btn blue darken-2' },
+					'Books'
+				),
+				React.createElement(
+					'button',
+					{ className: 'sort-buttons waves-effect waves-light btn blue lighten-2' },
+					'Show All'
+				)
+			),
+			React.createElement(
+				'form',
+				{ className: 'row input-field right', onSubmit: this.filterBox },
+				React.createElement(
+					'i',
+					{ className: 'material-icons prefix' },
+					''
+				),
+				React.createElement('input', { placeholder: 'Search', id: 'filterBox', type: 'text', ref: 'searchText' })
+			),
+			React.createElement(
+				'div',
+				{ className: 'row' },
+				React.createElement(
+					'table',
+					{ className: 'striped' },
+					React.createElement(
+						'thead',
+						null,
+						React.createElement(
+							'tr',
+							null,
+							React.createElement(
+								'th',
+								{ 'data-field': 'id' },
+								'Name'
+							),
+							React.createElement(
+								'th',
+								{ 'data-field': 'name' },
+								'Description'
+							),
+							React.createElement(
+								'th',
+								{ 'data-field': 'price' },
+								'Price'
+							),
+							React.createElement(
+								'th',
+								{ 'data-field': 'category' },
+								'Category'
+							)
+						)
+					),
+					React.createElement(
+						'tbody',
+						null,
+						content
+					)
+				),
+				React.createElement(
+					'div',
+					{ className: 'row' },
+					React.createElement(
+						'button',
+						{ onClick: this.showCheapest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
+						'Show 10 Cheapest'
+					),
+					React.createElement(
+						'button',
+						{ onClick: this.showNewest, className: 'sort-buttons-bottom waves-effect waves-light btn blue-grey lighten-1' },
+						'Show 10 Newest'
+					)
+				)
+			)
+		);
+	},
+	showClothing: function showClothing() {
+		this.props.router.navigate('category/clothing', { trigger: true });
+	},
+	showElectronics: function showElectronics() {
+		this.props.router.navigate('category/electronics', { trigger: true });
+	},
+	showBooks: function showBooks() {
+		this.props.router.navigate('category/books', { trigger: true });
+	},
+	showNewest: function showNewest() {
+		this.props.router.navigate('newest', { trigger: true });
+	},
+	showCheapest: function showCheapest() {
+		this.props.router.navigate('cheapest', { trigger: true });
+	},
+	filterBox: function filterBox(e) {
+		var _this2 = this;
 
-        e.preventDefault();
-        var query = new Parse.Query(ProductModel);
-        var searchInput = this.refs.searchText.getDOMNode().value;
-        query.contains('name', searchInput).find().then(function (searchResult) {
-            _this2.setState({ products: searchResult });
-        }, function (err) {
-            console.log(err);
-        });
-    }
+		e.preventDefault();
+		var query = new Parse.Query(ProductModel);
+		var searchInput = this.refs.searchText.getDOMNode().value;
+		query.contains('name', searchInput).find().then(function (searchResult) {
+			_this2.setState({ products: searchResult });
+		}, function (err) {
+			console.log(err);
+		});
+	}
 });
 
 },{"../models/ProductModel":172,"react":159}],170:[function(require,module,exports){
@@ -34050,6 +34050,7 @@ module.exports = React.createClass({
 'use strict';
 var React = require('react');
 var Backbone = require('backbone');
+
 window.$ = require('jquery');
 window.jQuery = $;
 Parse.initialize("TxRn8SR0tZvKRYkBZSp8aieqgJjXbSJ16oX1zdR9", "F2L7RQFb3tXVgDmiqMslqXmVZKD4nfRsKCLYPf7w");
